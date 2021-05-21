@@ -4,9 +4,12 @@
 // Mongoose --> npm install mongoose --save
 // ENV -->  npm i dotenv
 // CORS --> npm i cors
+// Validaciones --> npm i express-validator
+// Jsonwebtoken --> npm i jsonwebtoken
 const express = require('express');
 const {dbConnection} = require('./database/confi');
 require('dotenv').config();
+const cors = require('cors');
 
 //Crear el servidor express
 const app = express();
@@ -21,12 +24,15 @@ dbConnection();
 app.use(cors());
 
 
-app.get('/', (req, res) =>{
-    res.status(200).json({
-        ok: true,
-        msg: 'Perfecto'
-    })
-});
+//Lectura y parseo del body
+app.use(express.json());
+
+
+//Ruta usuarios
+app.use('/api/usuarios', require('./routes/usuarios'));
+
+//Ruta login
+app.use('/api/login', require('./routes/auth'));
 
 
 app.listen(process.env.PORT, () =>{
