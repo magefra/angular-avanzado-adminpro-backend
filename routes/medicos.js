@@ -29,7 +29,12 @@ router.get('/',
 
 
 router.post('/',
-    [],
+    [
+        validarJWT,
+        check('nombre', 'El nombre del medico es necesario').not().isEmpty(),
+        check('hospital', 'El hospital id debe ser válido').isMongoId(),
+        validarCampos
+    ],
     crearMedico
 );
 
