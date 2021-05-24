@@ -1,6 +1,8 @@
 const { response } = require("express")
 
 
+const Hospital = require('../models/hospital');
+
 const getHospitales = (req, res = response) =>
 {
         res.status(200).json({
@@ -10,12 +12,35 @@ const getHospitales = (req, res = response) =>
 }
 
 
-const crearHospital = (req, res = response) =>
+const crearHospital = async(req, res = response) =>
 {
-        res.status(200).json({
-            ok: true,
-            msg: 'crearHospital'
-        });       
+    const uuid = req.uuid;
+
+        const hospital = new Hospital({
+            usuario: uuid,
+            ...req.body
+        });
+  
+
+        try {
+            
+
+           const hospitalDB =  await hospital.save();
+
+            res.status(200).json({
+                ok: true,
+                hospital: hospitalDB
+            });    
+
+
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({
+                ok: false,
+                msg: 'Hable con el Administrador'
+            })
+        }
+   
 }
 
 const actualizarHospital = (req, res = response) =>

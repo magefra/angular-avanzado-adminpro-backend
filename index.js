@@ -37,6 +37,10 @@ app.use('/api/login', require('./routes/auth'));
 //Ruta hospitales
 app.use('/api/hospitales', require('./routes/hospitales'));
 
+//Ruta medicos
+app.use('/api/medicos', require('./routes/medicos'));
+
+
 app.listen(process.env.PORT, () =>{
     console.log('Servidor corriendo en el puerto' + process.env.PORT);
 });
