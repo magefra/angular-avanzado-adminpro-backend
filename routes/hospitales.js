@@ -23,6 +23,7 @@ const router = Router();
 
 //Rutas
 router.get('/',
+     validarJWT,
      getHospitales
 );
 

@@ -22,7 +22,8 @@ const router = Router();
 
 
 //Rutas
-router.get('/',
+router.get('/', 
+     validarJWT,
      getMedicos
 );
 
