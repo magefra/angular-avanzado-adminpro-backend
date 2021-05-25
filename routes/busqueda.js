@@ -6,7 +6,7 @@ const {Router} = require('express');
 
 const { validarJWT } = require('../middlewares/validar-jwt');
 
-const {  getBusqueda } = require('../controllers/busqueda');
+const {  getBusqueda, getDocumentosColeccion } = require('../controllers/busqueda');
 
 
 
@@ -20,6 +20,10 @@ router.get('/:busqueda',
      getBusqueda
 );
 
+router.get('/coleccion/:tabla/:busqueda', 
+     validarJWT,
+     getDocumentosColeccion
+);
 
 
 module.exports = router;
