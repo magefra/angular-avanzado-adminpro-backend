@@ -11,13 +11,32 @@ const bcrypt = require('bcryptjs');
 const getUsuarios = async(req, res) =>{
 
 
-    const usuarios  = await Usuario.find({},"nombre email rol google");
+    const desde = Number(req.query.desde) || 0;
+
+    console.log(desde);
+
+  
+
+
+   // const total = await ;
+
+
+  const [usuarios, total] =  await Promise.all([
+         Usuario.find({},"nombre email rol google")  
+                             .skip(desde)
+                             .limit(5),
+         Usuario.count()
+
+
+
+    ]);
+
 
     res.json({
         ok: true,
          msg: 'get usuarios',
          usuarios,
-         uuid: req.uuid
+         total: total
     });
 }
 
