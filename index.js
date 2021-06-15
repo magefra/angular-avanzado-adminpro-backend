@@ -52,7 +52,7 @@ app.use('/api/hospitales', require('./routes/hospitales'));
 
 
 //Ruta Busqueda
-//app.use('/api/todo', require('./routes/busqueda'));
+app.use('/api/todo', require('./routes/busqueda'));
 
 
 //Ruta Uploads
