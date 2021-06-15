@@ -56,7 +56,7 @@ app.use('/api/todo', require('./routes/busqueda'));
 
 
 //Ruta Uploads
-//app.use('/api/upload',require('./routes/uploads'));
+ app.use('/api/upload',require('./routes/uploads'));
 
 
 
