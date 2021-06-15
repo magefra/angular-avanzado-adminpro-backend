@@ -43,10 +43,6 @@ app.use('/api/login', require('./routes/auth'));
 app.use('/api/medicos', require('./routes/medicos'));
 
 
-//Ruta Busqueda
-app.use('/api/todo', require('./routes/busqueda'));
-
-
 //Ruta Uploads
 app.use('/api/upload',require('./routes/uploads'));
 
