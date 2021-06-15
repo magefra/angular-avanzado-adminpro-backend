@@ -12,6 +12,7 @@ const express = require('express');
 const {dbConnection} = require('./database/confi');
 require('dotenv').config();
 const cors = require('cors');
+const path = require('path');
 
 //Crear el servidor express
 const app = express();
@@ -60,6 +61,10 @@ app.use('/api/todo', require('./routes/busqueda'));
 
 
 
+ // Lo ultimo cuando ya se hace el build
+ app.get('*', (req, resp) =>{
+    resp.sendFile(path.resolve(__dirname, 'public/index.html'));
+ });
 
 
 
