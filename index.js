@@ -43,8 +43,7 @@ app.use('/api/login', require('./routes/auth'));
 app.use('/api/medicos', require('./routes/medicos'));
 
 
-//Ruta Uploads
-app.use('/api/upload',require('./routes/uploads'));
+
 
 app.listen(process.env.PORT, () =>{
     console.log('Servidor corriendo en el puerto' + process.env.PORT);
