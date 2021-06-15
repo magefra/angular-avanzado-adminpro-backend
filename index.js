@@ -13,6 +13,8 @@ const cors = require('cors');
 
 //Crear el servidor express
 const app = express();
+// CORS
+app.use(cors());
 
 
 //db Conexión
@@ -23,8 +25,6 @@ dbConnection();
 app.use(express.static('public'));
 
 
-// CORS
-app.use(cors());
 
 
 //Lectura y parseo del body
