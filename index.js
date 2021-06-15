@@ -6,6 +6,8 @@
 // CORS --> npm i cors
 // Validaciones --> npm i express-validator
 // Jsonwebtoken --> npm i jsonwebtoken
+
+
 const express = require('express');
 const {dbConnection} = require('./database/confi');
 require('dotenv').config();
@@ -37,10 +39,26 @@ app.use('/api/usuarios', require('./routes/usuarios'));
 //Ruta login
 app.use('/api/login', require('./routes/auth'));
 
-//Ruta hospitales
 
 //Ruta medicos
 app.use('/api/medicos', require('./routes/medicos'));
+
+
+
+
+
+//Ruta hospitales
+app.use('/api/hospitales', require('./routes/hospitales'));
+
+
+//Ruta Busqueda
+//app.use('/api/todo', require('./routes/busqueda'));
+
+
+//Ruta Uploads
+//app.use('/api/upload',require('./routes/uploads'));
+
+
 
 
 
