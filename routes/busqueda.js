@@ -1,5 +1,5 @@
 /*
-    Ruta: /api/busuqueda
+    Ruta: /api/buuqueda
 */
 
 const {Router} = require('express');
